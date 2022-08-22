@@ -35,11 +35,12 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("http://api.lightsky.top/api/m.php")
+  words = requests.get("http://api.lightsky.top/api/m2.php")
   #if words.status_code != 200:
     #return get_words()
   #return words.json()['msg']
-  return words
+  word = json.loads(words)
+  return word.get('msg')
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
