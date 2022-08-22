@@ -7,9 +7,9 @@ import os
 import random
 
 today = datetime.now()
-start_date = os.environ['START_DATE']
+#start_date = os.environ['START_DATE']
 city = os.environ['CITY']
-birthday = os.environ['BIRTHDAY']
+#birthday = os.environ['BIRTHDAY']
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -35,10 +35,10 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("https://api.shadiao.pro/chp")
+  words = requests.get("http://api.lightsky.top/api/m2.php")
   if words.status_code != 200:
     return get_words()
-  return words.json()['data']['text']
+  return words.json()['msg']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -48,6 +48,6 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+data = {"weather":{"value":wea},"temperature":{"value":temperature},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
