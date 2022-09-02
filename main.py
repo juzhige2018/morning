@@ -35,10 +35,10 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  #words = requests.get("http://api.lightsky.top/api/m2.php")
-  #if words.status_code != 200:
-    #return get_words()
-  #return words.json()['msg']
+  words = requests.get("https://api.lightsky.top/api/msg?format=js")
+  if words.status_code != 200:
+    return get_words()
+  return words.json()['msg']
   #word = json.loads(words)
   #return '测试内容'
 
