@@ -36,11 +36,10 @@ def get_birthday():
 
 def get_words():
   words = requests.get("https://api.lightsky.top/api/msg?format=js")
+  #此处接口采用诺灸API公益接口，接口版权所有人归本人，请勿随意调用
   if words.status_code != 200:
     return get_words()
   return words.json()['msg']
-  #word = json.loads(words)
-  #return '测试内容'
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
