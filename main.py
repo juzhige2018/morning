@@ -40,7 +40,7 @@ def get_words():
     #return get_words()
   #return words.json()['msg']
   #word = json.loads(words)
-  return '测试内容'
+  #return '测试内容'
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -49,7 +49,7 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea, temperature = get_weather() + “%”
+wea, temperature = get_weather()
 data = {"weather":{"value":wea },"temperature":{"value":temperature},"woreds":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
