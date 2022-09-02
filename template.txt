@@ -1,0 +1,7 @@
+本文件为模板示例文件，直接复制内容创建即可
+
+当前城市：{{city.DATA}}
+今日天气：{{weather.DATA}}
+当前温度：{{temperature.DATA}}
+
+{{woreds.DATA}}
