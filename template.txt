@@ -2,6 +2,6 @@
 
 当前城市：{{city.DATA}}
 今日天气：{{weather.DATA}}
-当前温度：{{temperature.DATA}}
+当前温度：{{temperature.DATA}}℃
 
 {{woreds.DATA}}
